@@ -77,7 +77,7 @@ export default {
 
   methods: {
     async getNotes() {
-      const res = await fetch("http://localhost:3000/notes")
+      const res = await fetch("https://backpost-i8gy.onrender.com/notes")
       this.notes = await res.json()
     },
 
@@ -85,7 +85,7 @@ export default {
       // Validation simple pour éviter d'envoyer du vide
       if (!this.title && !this.content) return;
 
-      await fetch("http://localhost:3000/notes", {
+      await fetch("https://backpost-i8gy.onrender.com/notes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -100,7 +100,7 @@ export default {
     },
 
     async deleteNote(id) {
-      await fetch("http://localhost:3000/notes/" + id, {
+      await fetch("https://backpost-i8gy.onrender.com/notes/" + id, {
         method: "DELETE"
       })
 
